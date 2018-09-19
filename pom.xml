@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.smartholiday.exam</groupId>
+    <artifactId>anki</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    
+    <properties>
+    	<javaSourceCompatibility>1.8</javaSourceCompatibility>
+		<javaTargetCompatibility>1.8</javaTargetCompatibility>
+    	<junit.version>4.11</junit.version>
+    	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<sourceEncoding>UTF-8</sourceEncoding>
+    </properties>
+    
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+	
+	<dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+    </dependencies>
+    
+    <build>
+    	<finalName>anki-mauro-sanchez</finalName>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					  <groupId>org.apache.maven.plugins</groupId>
+					  <artifactId>maven-compiler-plugin</artifactId>
+					  <version>3.1</version>
+					  <configuration>
+						<source>${javaSourceCompatibility}</source>
+						<target>${javaTargetCompatibility}</target>
+					</configuration>
+				</plugin>
+		  </plugins>
+		</pluginManagement>
+		<plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${javaSourceCompatibility}</source>
+					<target>${javaTargetCompatibility}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-jar-plugin</artifactId>
+			    <configuration>
+			        <archive>
+			            <manifest>
+			                <addClasspath>true</addClasspath>
+			                <mainClass>com.weekendesk.anki.AnkiMain</mainClass>
+			            </manifest>
+			        </archive>
+			    </configuration>
+			</plugin>
+        </plugins>
+        <resources>
+	        <resource>
+	            <directory>src/main/resources</directory>
+	            <includes>
+		        	<include>**/*.txt</include>
+		        </includes>
+	        </resource>
+	    </resources>
+	</build>
+
+</project>
